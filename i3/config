@@ -1,9 +1,9 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# mod = alt, $sup = Windows key
-set $mod    Mod1
-set $sup    Mod4
+# mod = alt, $sup = cmd
+set $mod    Mod4
+set $sup    Mod1
 
 set $apos   24
 set $comma  25
@@ -23,7 +23,7 @@ set $t 45
 set $n 46
 set $s 47
 
-set $j 54
+set $c 54 #
 set $k 55
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -40,7 +40,7 @@ set $k 55
 # font pango:Source Code Pro for Powerline 10px
 # font pango:SFNS Text MediumP4 14px
 font                    pango:SFNS Text Medium 14px
-#border only, no titlebar
+# border only, no titlebar
 default_border          pixel 1
 default_floating_border pixel
 hide_edge_borders       both
@@ -161,7 +161,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
-bindcode $mod+Shift+$j reload
+bindcode $mod+Shift+$c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindcode $mod+Shift+$r restart
 # exit i3 (logs you out of your X session)
@@ -278,7 +278,7 @@ exec --no-startup-id pasystray
 for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
 mouse_warping output
 
-gaps inner 20
+gaps inner 10
 # set the screen timeout for 20 mins
 exec --no-startup-id xset dpms 0 0 1200
 exec --no-startup-id autokey-gtk
@@ -286,7 +286,6 @@ exec --no-startup-id autokey-gtk
 # startup apps
 exec --no-startup-id        /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id autorandr --change
-exec_always --no-startup-id ~/apps/i3-chrome-tab-dragging/i3-chrome-tab-dragging.py
 
 # work specific startup apps
 exec        --no-startup-id jetbrains-toolbox --minimize
