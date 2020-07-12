@@ -23,7 +23,7 @@ set $t 45
 set $n 46
 set $s 47
 
-set $c 54 #
+set $c 54
 set $k 55
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -215,6 +215,7 @@ bindcode $mod+$l exec "i3lock -c 000000"
 bindsym $sup+space exec ~/.config/i3/layout.sh
 
 bar {
+    output DisplayPort-1
     # status_command i3status
     status_command i3blocks
     # i3bar_command i3bar -t
@@ -225,7 +226,6 @@ bar {
         # statusline #DCDCDC10
     }
 }
-
 
 
 # fix the freaking sound
