@@ -193,6 +193,9 @@ mode "resize" {
 
 bindcode $mod+$p mode "resize"
 
+assign [class="radeon-profile"] output right
+assign [class="Steam"]          1
+assign [class="steam"]          1
 
 # Audio shortcuts
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 3%-
@@ -289,5 +292,6 @@ exec_always --no-startup-id autorandr --change
 
 # work specific startup apps
 exec        --no-startup-id jetbrains-toolbox --minimize
-exec        --no-startup-id slack
+exec        --no-startup-id radeon-profile
+exec        --no-startup-id steam
 exec        --no-startup-id flameshot
