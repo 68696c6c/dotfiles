@@ -218,15 +218,12 @@ bindcode $mod+$l exec "i3lock -c 000000"
 bindsym $sup+space exec ~/.config/i3/layout.sh
 
 bar {
-    output DisplayPort-1
-    # status_command i3status
+    tray_output DisplayPort-1
     status_command i3blocks
-    # i3bar_command i3bar -t
     position    top
     font pango:DejaVu Sans Mono 10
-    colors{
+    colors {
         background #23232310
-        # statusline #DCDCDC10
     }
 }
 
