@@ -1,0 +1,292 @@
+# i3 config file (v4)
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+#set $terminal kitty
+#set $launcher dmenu_run
+
+
+set $alt    Mod4 # alt
+set $cmd    Mod1 # super
+
+set $Q   24
+set $comma  25
+set $period 26
+set $p      27
+
+set $r 32
+set $l 33
+
+set $o 39
+set $e 40
+set $u 41
+
+set $d 43
+set $h 44
+set $t 45
+set $n 46
+set $s 47
+
+set $c 54
+set $k 55
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below. ISO 10646 = Unicode
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, if you need a lot of unicode glyphs or
+# right-to-left text rendering, you should instead use pango for rendering and
+# chose a FreeType font, such as:
+# font pango:DejaVu Sans Mono 10
+
+# --- Interface ---------------------------------------------------------------------
+#font -*-termsynu-medium-r-*-13-*-*-*-*-*-*-*
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# font pango:Source Code Pro for Powerline 10px
+# font pango:SFNS Text MediumP4 14px
+font                    pango:SFNS Text Medium 14px
+# border only, no titlebar
+default_border          pixel 1
+default_floating_border pixel
+hide_edge_borders       both
+
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
+
+# Use Mouse+$alt to drag floating windows to their wanted position
+floating_modifier $alt
+
+mode  "Passthrough Mode - Press Alt+F12 to exit" {
+  bindsym $alt+F12         mode "default"
+  bindsym $alt+$cmd+Escape mode "default"
+}
+
+bindsym $alt+F12         mode "Passthrough Mode - Press Alt+F12 to exit"
+bindsym $alt+$cmd+Escape mode "Passthrough Mode - Press Alt+F12 to exit"
+
+# Open terminal.
+#bindsym $alt+Return exec --no-startup-id $terminal
+bindsym $alt+Return exec --no-startup-id kitty
+
+# Quit window.
+bindcode $alt+Shift+$Q kill
+
+# Open launcher.
+#bindsym $cmd+space exec --no-startup-id $launcher
+bindsym $cmd+space exec --no-startup-id dmenu_run
+
+# move desktop monitor
+bindcode $alt+Shift+Control+$h move workspace to output left
+bindcode $alt+Shift+Control+$s move workspace to output right
+
+# change focus
+bindcode $alt+$h focus left
+bindcode $alt+$t focus down
+bindcode $alt+$n focus up
+bindcode $alt+$s focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $alt+Left  focus left
+bindsym $alt+Down  focus down
+bindsym $alt+Up    focus up
+bindsym $alt+Right focus right
+
+# move focused window
+bindcode $alt+Shift+$h move left
+bindcode $alt+Shift+$t move down
+bindcode $alt+Shift+$n move up
+bindcode $alt+Shift+$s move right
+
+# alternatively, you can use the cursor keys:
+bindsym $alt+Shift+Left  move left
+bindsym $alt+Shift+Down  move down
+bindsym $alt+Shift+Up    move up
+bindsym $alt+Shift+Right move right
+
+# split in horizontal orientation
+bindcode $alt+$d split h
+
+# split in vertical orientation
+bindcode $alt+$k split v
+
+# enter fullscreen mode for the focused container
+bindcode $alt+$u fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindcode $alt+$o      layout stacking
+bindcode $alt+$comma  layout tabbed
+bindcode $alt+$period layout default
+
+# toggle tiling / floating
+bindsym $alt+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $alt+space focus mode_toggle
+
+# focus the parent container
+bindsym $alt+a focus parent
+
+# focus the child container
+#bindsym $alt+d focus child
+
+# switch to workspace
+bindsym $alt+1 workspace 1
+bindsym $alt+2 workspace 2
+bindsym $alt+3 workspace 3
+bindsym $alt+4 workspace 4
+bindsym $alt+5 workspace 5
+bindsym $alt+6 workspace 6
+bindsym $alt+7 workspace 7
+bindsym $alt+8 workspace 8
+bindsym $alt+9 workspace 9
+bindsym $alt+0 workspace 10
+#
+# # move focused container to workspace
+bindsym $alt+Shift+1 move container to workspace 1
+bindsym $alt+Shift+2 move container to workspace 2
+bindsym $alt+Shift+3 move container to workspace 3
+bindsym $alt+Shift+4 move container to workspace 4
+bindsym $alt+Shift+5 move container to workspace 5
+bindsym $alt+Shift+6 move container to workspace 6
+bindsym $alt+Shift+7 move container to workspace 7
+bindsym $alt+Shift+8 move container to workspace 8
+bindsym $alt+Shift+9 move container to workspace 9
+bindsym $alt+Shift+0 move container to workspace 10
+
+# reload the configuration file
+bindcode $alt+Shift+$c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindcode $alt+Shift+$r restart
+# exit i3 (logs you out of your X session)
+bindcode $alt+Shift+$period exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+  # These bindings trigger as soon as you enter the resize mode
+
+  # Pressing left will shrink the window’s width.
+  # Pressing right will grow the window’s width.
+  # Pressing up will shrink the window’s height.
+  # Pressing down will grow the window’s height.
+  bindcode $h resize shrink width 10 px or 10 ppt
+  bindcode $t resize grow height 10 px or 10 ppt
+  bindcode $n resize shrink height 10 px or 10 ppt
+  bindcode $s resize grow width 10 px or 10 ppt
+
+  # same bindings, but for the arrow keys
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
+
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindcode $alt+$p mode "resize"
+
+assign [class="radeon-profile"] output right
+assign [class="Steam"]          1
+assign [class="steam"]          1
+
+# Audio shortcuts
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 3%-
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 3%+
+bindsym XF86AudioMute        exec amixer -D pulse sset Master toggle
+
+#window switchy like ubuntu
+bindsym Control+$alt+Right workspace next
+bindsym Control+$alt+Left  workspace prev
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp   exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+
+#lock screen
+# bindsym $alt+l exec "gnome-screensaver-command -l"
+bindcode $alt+$l exec "i3lock -c 000000"
+
+# toggle keyboard layout
+# bindsym $cmd+space exec ~/.config/i3/layout.sh
+
+bar {
+    tray_output DisplayPort-1
+    status_command i3blocks
+    position    top
+    font pango:DejaVu Sans Mono 10
+    colors {
+        background #23232310
+    }
+}
+
+
+# fix the freaking sound
+# exec --no-startup-id 'amixer -c 1 set Capture 20'
+
+#hangouts popup set to floating
+for_window [instance="crx_knipolnnllmklapflnccelgolnpehhpl"] floating enable
+# shutter floating
+for_window [class="Shutter"]                 floating   enable
+for_window [class="Nm-connection-editor"]    floating   enable
+for_window [title="Friends List"]            floating   enable
+for_window [title="Steam - News"]            floating   enable
+for_window [title="[^Steam]" class="Steam"]  floating   enable
+for_window [title="^Kerbal Space Program$"]  fullscreen enable
+for_window [instance="origin.exe"]           floating   enable
+for_window [title="Blizzard Battle.net"]     floating   enable
+for_window [class="UDKGame-Linux"]           floating   enable
+for_window [title="Minecraft Launcher"]      floating   enable
+for_window [title="Uplay"]                   floating   enable
+for_window [title="Volume Control"]          floating   enable
+for_window [title="^Lutris$"]                floating   enable
+for_window [title="^Battlefield™ 1"]         floating   enable
+for_window [title="Rockstar Games Launcher"] floating   enable
+for_window [title="^zoom$"]                  floating   enable
+for_window [class="Nm-connection-editor"]    floating   enable
+for_window [title="^JetBrains Toolbox"]      floating   enable
+
+# wallpaper changer
+exec --no-startup-id exec variety
+# exec --no-startup-id nitrogen --restore
+
+# exec --no-startup-id synergy
+# makes it brown in the evening
+# exec --no-startup-id redshift-gtk
+
+exec --no-startup-id compton --config ~/.config/i3/compton.conf -b
+
+#network manager
+exec --no-startup-id exec nm-applet
+# exec --no-startup-id wicd-gtk
+
+#volume icon
+# exec --no-startup-id exec volumeicon
+exec --no-startup-id pasystray
+# exec --no-startup-id gnome-sound-applet
+# exec --no-startup-id blueman-applet
+# exec --no-startup-id blueproximity
+
+# for_window [class="^jetbrains-.+"][window_type=dialog] focus
+for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
+mouse_warping output
+
+gaps inner 10
+# set the screen timeout for 20 mins
+exec --no-startup-id xset dpms 0 0 1200
+exec --no-startup-id autokey-gtk
+
+# startup apps
+exec --no-startup-id        /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+exec_always --no-startup-id autorandr --change
+
+# work specific startup apps
+exec        --no-startup-id jetbrains-toolbox --minimize
+exec        --no-startup-id radeon-profile
+exec        --no-startup-id steam
+exec        --no-startup-id flameshot
