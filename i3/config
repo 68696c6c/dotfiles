@@ -28,6 +28,11 @@ set $s 47
 set $c 54
 set $k 55
 
+set $monitor_one DisplayPort-1
+set $monitor_two HDMI-A-0
+
+workspace 10 output $monitor_two
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -217,7 +222,7 @@ bindcode $mod+$l exec "i3lock -c 000000"
 #bindsym $sup+space exec ~/.config/i3/layout.sh
 
 bar {
-    tray_output DisplayPort-1
+    tray_output $monitor_one
     status_command i3blocks
     position    top
     font pango:DejaVu Sans Mono 10
