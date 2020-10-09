@@ -54,11 +54,6 @@ alias rootOrcwd='[ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1 && gitr
 
 alias vue='docker run -it --rm -v "$PWD":"$PWD" -w "$PWD"  -u "$(id -u)" aarobc/vue-cli vue'
 
-alias dc='docker-compose'
-alias dcr='dc run --rm'
-alias dcrp='dcr --service-ports'
-alias dce='dc exec'
-
 alias v=$HOME/dotfiles/scripts/vimterm.py
 alias xclip='xclip -selection clipboard'
 alias hibernate=$HOME/dotfiles/scripts/hibernate.sh
@@ -73,6 +68,81 @@ alias gitclean="git branch --merged master | grep -v '^[ *]*master$' | xargs git
 alias gitcleanup='git remote prune origin'
 alias clearlaravel='dcr chat sh -c "./artisan cache:clear && ./artisan config:clear && ./artisan config:cache"'
 alias pr='~/dotfiles/scripts/go-to-source pr'
+
+
+## Begin the glorious purity of the one true Aaron.
+
+## GIT
+alias gs='git status'
+function gco() {
+    git checkout $1
+}
+function gcb() {
+    git checkout -b $1
+}
+function gcm() {
+    git commit -m $1
+}
+function gp() {
+    git pull origin $1
+}
+function gpr() {
+    git pull --rebase origin $1
+}
+function gap() {
+    git add -p
+}
+function gu() {
+    git reset --soft HEAD~1
+}
+
+## DOCKER
+alias dc='docker-compose'
+alias dr='docker-compose run --rm'
+alias drp='docker-compose run --rm --service-ports'
+alias dud='docker-compose up -d'
+alias dce='dc exec'
+alias dps='docker ps'
+alias drma='docker rm -f $(docker ps -aq)'
+alias dnuke='docker volume prune && docker rmi -f $(docker images -q)'
+
+## Make
+function mi() {
+    make image
+}
+function ml() {
+    make local
+}
+function md() {
+    make deps
+}
+function mt() {
+    make test
+}
+function mti() {
+    make test-integrations
+}
+
+## PROFILE
+alias zp='vim ~/dotfiles/zshrc'
+alias szp='source ~/dotfiles/zshrc'
+alias hosts='sudo vim /etc/hosts'
+
+## NAVIGATION
+alias ll='ls -lahG'
+alias code='cd $HOME/Code'
+alias cdgo='cd $HOME/Code/Go/src'
+alias cdpy='cd $HOME/Code/Python'
+
+## SYSTEM
+alias off='sudo shutdown -h now'
+
+## AWS
+alias ap='~/aws-profile.sh'
+alias acreds="cat ~/.aws/credentials"
+
+## End of his glorious purity.
+
 
 # alias twiliod='docker run --rm -it -v $HOME/.twilio-cli:/root/.twilio-cli -v $PWD:$PWD --workdir $PWD aarobc/twilio-cli twilio'
 
@@ -147,6 +217,7 @@ function extract {
 function rotate() {
   ffmpeg -i "$1" -c copy -metadata:s:v:0 rotate=180 "$2"
 }
+
 #hoping that this fixes the annoying issue when it doesn't workO
 # if hash setxkbmap 2>/dev/null; then
 #     # disable caps lock if it's on just in case
