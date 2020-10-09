@@ -1,11 +1,11 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-#set $terminal kitty
-#set $launcher dmenu_run
+set $terminal kitty
+set $launcher dmenu_run
 
-
-set $alt    Mod4 # alt
-set $cmd    Mod1 # super
+# mod = alt, $sup = cmd
+set $mod    Mod4
+set $sup    Mod1
 
 set $Q   24
 set $comma  25
@@ -58,112 +58,111 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 
-# Use Mouse+$alt to drag floating windows to their wanted position
-floating_modifier $alt
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
 
 mode  "Passthrough Mode - Press Alt+F12 to exit" {
-  bindsym $alt+F12         mode "default"
-  bindsym $alt+$cmd+Escape mode "default"
+  bindsym $mod+F12         mode "default"
+  bindsym $mod+$sup+Escape mode "default"
 }
 
-bindsym $alt+F12         mode "Passthrough Mode - Press Alt+F12 to exit"
-bindsym $alt+$cmd+Escape mode "Passthrough Mode - Press Alt+F12 to exit"
+bindsym $mod+F12         mode "Passthrough Mode - Press Alt+F12 to exit"
+bindsym $mod+$sup+Escape mode "Passthrough Mode - Press Alt+F12 to exit"
 
 # Open terminal.
-#bindsym $alt+Return exec --no-startup-id $terminal
-bindsym $alt+Return exec --no-startup-id kitty
+bindsym $mod+Return exec --no-startup-id $terminal
 
 # Quit window.
-bindcode $alt+Shift+$Q kill
+#bindcode $mod+Shift+$Q kill
+bindcode $sup+$Q kill
 
 # Open launcher.
-#bindsym $cmd+space exec --no-startup-id $launcher
-bindsym $cmd+space exec --no-startup-id dmenu_run
+bindsym $sup+space exec --no-startup-id $launcher
 
 # move desktop monitor
-bindcode $alt+Shift+Control+$h move workspace to output left
-bindcode $alt+Shift+Control+$s move workspace to output right
+bindcode $mod+Shift+Control+$h move workspace to output left
+bindcode $mod+Shift+Control+$s move workspace to output right
 
 # change focus
-bindcode $alt+$h focus left
-bindcode $alt+$t focus down
-bindcode $alt+$n focus up
-bindcode $alt+$s focus right
+bindcode $mod+$h focus left
+bindcode $mod+$t focus down
+bindcode $mod+$n focus up
+bindcode $mod+$s focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $alt+Left  focus left
-bindsym $alt+Down  focus down
-bindsym $alt+Up    focus up
-bindsym $alt+Right focus right
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
 
 # move focused window
-bindcode $alt+Shift+$h move left
-bindcode $alt+Shift+$t move down
-bindcode $alt+Shift+$n move up
-bindcode $alt+Shift+$s move right
+bindcode $mod+Shift+$h move left
+bindcode $mod+Shift+$t move down
+bindcode $mod+Shift+$n move up
+bindcode $mod+Shift+$s move right
 
 # alternatively, you can use the cursor keys:
-bindsym $alt+Shift+Left  move left
-bindsym $alt+Shift+Down  move down
-bindsym $alt+Shift+Up    move up
-bindsym $alt+Shift+Right move right
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindcode $alt+$d split h
+bindcode $mod+$d split h
 
 # split in vertical orientation
-bindcode $alt+$k split v
+bindcode $mod+$k split v
 
 # enter fullscreen mode for the focused container
-bindcode $alt+$u fullscreen
+bindcode $mod+$u fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindcode $alt+$o      layout stacking
-bindcode $alt+$comma  layout tabbed
-bindcode $alt+$period layout default
+bindcode $mod+$o      layout stacking
+bindcode $mod+$comma  layout tabbed
+bindcode $mod+$period layout default
 
 # toggle tiling / floating
-bindsym $alt+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $alt+space focus mode_toggle
+bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $alt+a focus parent
+bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $alt+d focus child
+#bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $alt+1 workspace 1
-bindsym $alt+2 workspace 2
-bindsym $alt+3 workspace 3
-bindsym $alt+4 workspace 4
-bindsym $alt+5 workspace 5
-bindsym $alt+6 workspace 6
-bindsym $alt+7 workspace 7
-bindsym $alt+8 workspace 8
-bindsym $alt+9 workspace 9
-bindsym $alt+0 workspace 10
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
 #
 # # move focused container to workspace
-bindsym $alt+Shift+1 move container to workspace 1
-bindsym $alt+Shift+2 move container to workspace 2
-bindsym $alt+Shift+3 move container to workspace 3
-bindsym $alt+Shift+4 move container to workspace 4
-bindsym $alt+Shift+5 move container to workspace 5
-bindsym $alt+Shift+6 move container to workspace 6
-bindsym $alt+Shift+7 move container to workspace 7
-bindsym $alt+Shift+8 move container to workspace 8
-bindsym $alt+Shift+9 move container to workspace 9
-bindsym $alt+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
-bindcode $alt+Shift+$c reload
+bindcode $mod+Shift+$c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindcode $alt+Shift+$r restart
+bindcode $mod+Shift+$r restart
 # exit i3 (logs you out of your X session)
-bindcode $alt+Shift+$period exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindcode $mod+Shift+$period exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -189,11 +188,13 @@ mode "resize" {
   bindsym Escape mode "default"
 }
 
-bindcode $alt+$p mode "resize"
+bindcode $mod+$p mode "resize"
 
-assign [class="radeon-profile"] output right
-assign [class="Steam"]          1
-assign [class="steam"]          1
+assign [class="Slack"] output right
+#assign [class="radeon-profile"] output right
+assign [class="radeon-profile"] 10
+assign [class="Steam"]          10
+assign [class="steam"]          10
 
 # Audio shortcuts
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 3%-
@@ -201,19 +202,19 @@ bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 3%+
 bindsym XF86AudioMute        exec amixer -D pulse sset Master toggle
 
 #window switchy like ubuntu
-bindsym Control+$alt+Right workspace next
-bindsym Control+$alt+Left  workspace prev
+bindsym Control+$mod+Right workspace next
+bindsym Control+$mod+Left  workspace prev
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 #lock screen
-# bindsym $alt+l exec "gnome-screensaver-command -l"
-bindcode $alt+$l exec "i3lock -c 000000"
+# bindsym $mod+l exec "gnome-screensaver-command -l"
+bindcode $mod+$l exec "i3lock -c 000000"
 
 # toggle keyboard layout
-# bindsym $cmd+space exec ~/.config/i3/layout.sh
+#bindsym $sup+space exec ~/.config/i3/layout.sh
 
 bar {
     tray_output DisplayPort-1
@@ -289,4 +290,5 @@ exec_always --no-startup-id autorandr --change
 exec        --no-startup-id jetbrains-toolbox --minimize
 exec        --no-startup-id radeon-profile
 exec        --no-startup-id steam
+#exec        --no-startup-id slack
 exec        --no-startup-id flameshot
