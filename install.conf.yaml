@@ -42,4 +42,6 @@
     ~/.config/kitty/kitty.conf:
       force: true
       path: kitty.conf
-
+    ~/.local/bin/dmenu_run:
+      force: true
+      path: scripts/dmenu_run
