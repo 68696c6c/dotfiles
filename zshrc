@@ -272,3 +272,17 @@ fi
 
 # set the option so you can use vim bindings in the shell
 # set -o vi
+
+function newgo() {
+  cd $HOME/Code
+  mkdir -p $1
+  cd $1
+  go mod init github.com/68696c6c/$1
+  git init
+  touch .gitignore
+  echo ".idea\nvendor\n" >> .gitignore
+}
+
+# Due to the way nvm is designed, you have to source it before you can use it:
+# https://aur.archlinux.org/packages/nvm/
+source /usr/share/nvm/init-nvm.sh

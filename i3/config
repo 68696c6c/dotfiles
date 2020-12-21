@@ -2,10 +2,12 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 set $terminal kitty
 set $launcher dmenu_run
+set $browser  chromium
 
 # mod = alt, $sup = cmd
 set $mod    Mod4
 set $sup    Mod1
+set $ctrl   Control
 
 set $Q   24
 set $comma  25
@@ -28,10 +30,10 @@ set $s 47
 set $c 54
 set $k 55
 
-set $monitor_one DisplayPort-1
+# Monitors
+#set $monitor_one DisplayPort-1
+set $monitor_one primary
 set $monitor_two HDMI-A-0
-
-workspace 10 output $monitor_two
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -76,6 +78,9 @@ bindsym $mod+$sup+Escape mode "Passthrough Mode - Press Alt+F12 to exit"
 
 # Open terminal.
 bindsym $mod+Return exec --no-startup-id $terminal
+
+# Open browser.
+bindsym $mod+$ctrl+Return exec --no-startup-id $browser
 
 # Quit window.
 #bindcode $mod+Shift+$Q kill
@@ -138,7 +143,36 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-# switch to workspace
+########################################################################################################################
+# WORKSPACES
+
+# Workspace monitor assignment
+workspace 1 output $monitor_one
+workspace 2 output $monitor_one
+workspace 3 output $monitor_one
+workspace 4 output $monitor_one
+workspace 5 output $monitor_one
+workspace 6 output $monitor_one
+
+workspace 7 output $monitor_two
+workspace 8 output $monitor_two
+workspace 9 output $monitor_two
+workspace 10 output $monitor_two
+
+# Workspace application assignment
+assign [class="origin.exe"]                  1
+assign [class="starwarsjedifallenorder.exe"] 1
+assign [class="kitty"]                       8
+assign [class="Slack"]                       9
+assign [class="discord"]                     9
+assign [class="radeon-profile"]             10
+assign [class="Steam"]                      10
+assign [class="steam"]                      10
+
+# Applications can also be assigned using right and left
+#assign [class="radeon-profile"] output right
+
+# Workspace navigation
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -149,8 +183,8 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
-#
-# # move focused container to workspace
+
+# Move window to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
@@ -162,11 +196,11 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# reload the configuration file
+# Reload I3 configuration file
 bindcode $mod+Shift+$c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# Restart I3 inplace (preserves your layout/session, can be used to upgrade I3)
 bindcode $mod+Shift+$r restart
-# exit i3 (logs you out of your X session)
+# Exit i3 (logs you out of your X session)
 bindcode $mod+Shift+$period exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
@@ -195,22 +229,16 @@ mode "resize" {
 
 bindcode $mod+$p mode "resize"
 
-assign [class="Slack"] output right
-#assign [class="radeon-profile"] output right
-assign [class="radeon-profile"] 10
-assign [class="Steam"]          10
-assign [class="steam"]          10
-
 # Audio shortcuts
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 3%-
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 3%+
 bindsym XF86AudioMute        exec amixer -D pulse sset Master toggle
 
-#window switchy like ubuntu
+# Switch workspaces.
 bindsym Control+$mod+Right workspace next
 bindsym Control+$mod+Left  workspace prev
 
-# Sreen brightness controls
+# Screen brightness controls
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
@@ -283,17 +311,22 @@ for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
 mouse_warping output
 
 gaps inner 10
+
 # set the screen timeout for 20 mins
 exec --no-startup-id xset dpms 0 0 1200
 exec --no-startup-id autokey-gtk
 
-# startup apps
-exec --no-startup-id        /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+# Startup apps - universal
+exec        --no-startup-id        /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id autorandr --change
+exec        --no-startup-id flameshot
+exec        --no-startup-id slack
+exec        --no-startup-id discord
 
-# work specific startup apps
+# Startup apps - work specific
 exec        --no-startup-id jetbrains-toolbox --minimize
+exec        --no-startup-id kitty
+
+# Startup apps - games
 exec        --no-startup-id radeon-profile
 exec        --no-startup-id steam
-#exec        --no-startup-id slack
-exec        --no-startup-id flameshot
