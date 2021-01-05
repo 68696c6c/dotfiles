@@ -1,7 +1,14 @@
 - clean: ['~']
 
 - link:
+    ~/.iterm.json: iterm.json
     ~/.bash_profile: bash_profile
     ~/.gitconfig: gitconfig
 
+- create:
+    - ~/Code
 
+- shell:
+      - command: ./brew.sh
+        stdin: true
+        stdout: true
