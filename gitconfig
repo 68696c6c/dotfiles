@@ -1,0 +1,7 @@
+[user]
+	name = 68696c6c
+	email = 68696c6c@gmail.com
+[color]
+	ui = true
+[core]
+	autocrlf = input
