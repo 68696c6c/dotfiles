@@ -5,20 +5,21 @@
 
 - clean: [ '~' ]
 
+- create:
+  - ~/Code
+
 - link:
     ~/.bash_profile: bash_profile.sh
     ~/.gitconfig: gitconfig
     ~/.iterm.json: iterm.json
 
-- create:
-  - ~/Code
+- sudo:
+  - link:
+      /etc/hosts: hosts
 
 - shell:
   - [ git submodule update --init --recursive, Installing submodules ]
   - command: ./brew.sh
     stdin: true
     stdout: true
-
-#- sudo:
-#  - link:
-#      /etc/hosts: hosts
+    stderr: true
