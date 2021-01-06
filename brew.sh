@@ -3,7 +3,7 @@
 # To install Brew, run this: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Record starting packages.
-brew list --versions > ~/.brew-versions-$(date +%Y%m%d%H%M%S)
+brew list --versions > ~/.brew-versions
 
 # Make sure we’re using the latest Homebrew.
 brew update

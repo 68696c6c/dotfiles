@@ -77,6 +77,7 @@ function phelp() {
     echo '  gpath       echo $GOPATH'
     echo '  artisan     php artisan $command'
     echo '  phpunit     vendor/bin/phpunit'
+    echo '  python      python3'
     echo '  pip         run pip inside of a python:latest docker container'
     echo ''
     echo 'Fun'
@@ -247,6 +248,9 @@ function fu() {
 
 ################################################################################
 ### Projects
+function dot() {
+  cd $HOME/.dotfiles
+}
 
 # dev - copy current profile to _dev project
 function bbp() {
@@ -329,6 +333,7 @@ alias phpunit='vendor/bin/phpunit'
 ################################################################################
 ## Python
 # Run pip inside the python:latest docker image.
+alias python='python3'
 alias pip='docker run --rm -it -v $PWD:$PWD --workdir $PWD python:latest pip'
 
 ################################################################################

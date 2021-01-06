@@ -1,14 +1,24 @@
-- clean: ['~']
+- defaults:
+    link:
+      relink: true
+      force: true
+
+- clean: [ '~' ]
 
 - link:
-    ~/.iterm.json: iterm.json
-    ~/.bash_profile: bash_profile
+    ~/.bash_profile: bash_profile.sh
     ~/.gitconfig: gitconfig
+    ~/.iterm.json: iterm.json
 
 - create:
-    - ~/Code
+  - ~/Code
 
 - shell:
-      - command: ./brew.sh
-        stdin: true
-        stdout: true
+  - [ git submodule update --init --recursive, Installing submodules ]
+  - command: ./brew.sh
+    stdin: true
+    stdout: true
+
+#- sudo:
+#  - link:
+#      /etc/hosts: hosts
