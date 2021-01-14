@@ -4,6 +4,7 @@ set -e
 
 CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
+DOTBOT_SUDO_DIR="dotbot-sudo"
 
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -11,5 +12,6 @@ BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
+git submodule update --init --recursive "${DOTBOT_SUDO_DIR}"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -v -d "${BASEDIR}" -c "${CONFIG}" -p "${BASEDIR}/dotbot-sudo/sudo.py" "${@}"

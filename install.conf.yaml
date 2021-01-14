@@ -19,6 +19,10 @@
 
 - shell:
   - [ git submodule update --init --recursive, Installing submodules ]
+  - command: which brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    stdin: true
+    stdout: true
+    stderr: true
   - command: ./brew.sh
     stdin: true
     stdout: true
