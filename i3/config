@@ -308,7 +308,7 @@ exec --no-startup-id pasystray
 
 # for_window [class="^jetbrains-.+"][window_type=dialog] focus
 for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
-mouse_warping output
+mouse_warping none
 
 gaps inner 10
 
