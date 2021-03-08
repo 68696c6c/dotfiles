@@ -26,6 +26,7 @@ PATH="$PATH:$HOME/.npm-global/bin"
 PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/bin"
 PATH="$PATH:/snap/bin"
 PATH="$PATH:$HOME/.local/bin"
+PATH="$PATH:$HOME/.yarn/bin"
 
 export PATH=$PATH
 # remove duplicate entrys from path
