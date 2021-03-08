@@ -11,6 +11,9 @@
     ~/.config/nvim:
       force: true
       path: vim
+    ~/.config/chromium-flags.conf:
+      force: true
+      path: chromium-flags.conf
     ~/.config/i3:
       force: true
       path: i3
@@ -26,7 +29,7 @@
       path: tmux.conf
     ~/.zshrc:
       force: true
-      path: zshrc
+      path: zshrc.sh
     ~/.profile:
       force: true
       path: profile
