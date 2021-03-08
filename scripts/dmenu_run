@@ -1,2 +1,2 @@
 #!/bin/bash
-dmenu_path | awk '!/chromedriver/' | dmenu "$@" | ${SHELL:-"/bin/bash"} &
+dmenu_path | awk '!/chromedriver/' |  awk '!/webpinfo/'  |  awk '!/webpmux/'  |  awk '!/webpng/' | dmenu "$@" | ${SHELL:-"/bin/bash"} &
