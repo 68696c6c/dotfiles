@@ -12,10 +12,12 @@ brew update
 brew upgrade
 
 # Install.
+brew install coreutils
 brew install bash-git-prompt
 brew install lolcat
 brew install go
 brew install node
+brew install node@12
 brew install yarn
 brew install php
 brew install python
@@ -24,6 +26,7 @@ brew install python
 brew install --cask iterm2
 brew install --cask docker
 brew install --cask google-chrome
+brew install --cask firefox
 brew install --cask discord
 brew install --cask slack
 brew install --cask jetbrains-toolbox

@@ -1,0 +1,17 @@
+[default]
+aws_access_key_id = AKIA4ZOICDLRTIKKHH6W
+aws_secret_access_key = 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
+
+[ops]
+aws_access_key_id = AKIA4ZOICDLRTIKKHH6W
+aws_secret_access_key = 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
+
+[martech-developer]
+role_arn = arn:aws:iam::485174081234:role/martech-developer
+source_profile = default
+mfa_serial = arn:aws:iam::879277251299:mfa/aaron.hill@clearlink.com
+
+[martech-prod]
+role_arn = arn:aws:iam::748630014823:role/read-only
+source_profile = default
+mfa_serial = arn:aws:iam::879277251299:mfa/aaron.hill@clearlink.com

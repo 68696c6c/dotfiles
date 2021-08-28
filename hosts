@@ -10,14 +10,7 @@
 
 # Local sites.
 127.0.0.1    horns.local
-127.0.0.1    leshen.local
 127.0.0.1    loom.local
-127.0.0.1    usdish.local
-127.0.0.1    viosecurity.local
-127.0.0.1    viasat.local
-
-# Here be dragons.
-#viasat-proxy.clear.link    viasat.com
 
 # Added by Docker Desktop
 # To allow the same kube context to work on the host and the container:

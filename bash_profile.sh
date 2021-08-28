@@ -69,7 +69,7 @@ function phelp() {
     echo '  horns       navigate to the horns project dir'
     echo '  kedge       navigate to $project: dock, api, web, db, deploy, web1, shopify'
     echo '  loom        navigate to loom project dir'
-    echo '  leshen      navigate to leshen project dir'
+    echo '  lesh        navigate to leshen project dir'
     echo '  usdish      navigate to usdish project dir'
     echo '  cldock      navigate to martech-docker project dir'
     echo ''
@@ -112,17 +112,16 @@ function dush() {
 ## AWS
 # legacy aws-profile switcher
 #alias aa="export AWS_EMAIL=$(~/aws-account.sh)"
-#alias ap="~/aws-profile.sh"
-#alias acreds="cat ~/.aws/credentials"
 alias aws='docker run --rm -it -v ~/.aws:/root/.aws amazon/aws-cli --profile=$AWS_PROFILE'
+alias ap="~/aws-profile.sh"
 alias aconf='cat ~/.aws/config'
 alias acreds='cat ~/.aws/credentials'
 alias aprof='echo $AWS_PROFILE'
-alias kprod='export AWS_PROFILE=kedge-production'
-alias cldev='export AWS_PROFILE=martech-developer'
-alias clprod='export AWS_PROFILE=martech-prod'
-alias awsgoat='export AWS_PROFILE=goat'
-alias gprod='export AWS_PROFILE=goat-production'
+#alias kprod='export AWS_PROFILE=kedge-production'
+#alias cldev='export AWS_PROFILE=martech-developer'
+#alias clprod='export AWS_PROFILE=martech-prod'
+#alias awsgoat='export AWS_PROFILE=goat'
+#alias gprod='export AWS_PROFILE=goat-production'
 
 # Fucking iCal is fucking broken and steals focus when a new event is received. Garbage status broken ass shit UI.
 alias calnag="defaults write com.apple.iCal NSDontMakeMainWindowKey YES"
@@ -275,7 +274,7 @@ alias horns='cd $HOME/Code/horns'
 
 ## Clearlink
 alias loom='cd $HOME/Code/loom'
-alias leshen='cd $HOME/Code/leshen'
+alias lesh='cd $HOME/Code/leshen'
 alias usdish='cd $HOME/Code/usdish'
 alias bridge='cd $HOME/Code/the-bridge'
 alias cldock='cd $HOME/Code/martech-docker'
