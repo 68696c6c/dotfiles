@@ -31,9 +31,9 @@ set $c 54
 set $k 55
 
 # Monitors
-#set $monitor_one DisplayPort-1
-set $monitor_one primary
-set $monitor_two HDMI-A-0
+set $monitor_one DisplayPort-1
+set $monitor_two DisplayPort-2
+set $monitor_three HDMI-A-0
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -127,7 +127,7 @@ bindcode $mod+$k split v
 bindcode $mod+$u fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindcode $mod+$o      layout stacking
+#bindcode $mod+$o      layout stacking
 bindcode $mod+$comma  layout tabbed
 bindcode $mod+$period layout default
 
@@ -156,18 +156,18 @@ workspace 6 output $monitor_one
 
 workspace 7 output $monitor_two
 workspace 8 output $monitor_two
-workspace 9 output $monitor_two
-workspace 10 output $monitor_two
+workspace 9 output $monitor_three
+workspace 10 output $monitor_three
 
 # Workspace application assignment
 assign [class="origin.exe"]                  1
 assign [class="starwarsjedifallenorder.exe"] 1
-assign [class="kitty"]                       8
+#assign [class="kitty"]                      8
+assign [class="radeon-profile"]              8
+assign [class="Steam"]                       8
+assign [class="steam"]                       8
 assign [class="Slack"]                       9
 assign [class="discord"]                     9
-assign [class="radeon-profile"]             10
-assign [class="Steam"]                      10
-assign [class="steam"]                      10
 
 # Applications can also be assigned using right and left
 #assign [class="radeon-profile"] output right
@@ -198,8 +198,10 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # Reload I3 configuration file
 bindcode $mod+Shift+$c reload
+
 # Restart I3 inplace (preserves your layout/session, can be used to upgrade I3)
 bindcode $mod+Shift+$r restart
+
 # Exit i3 (logs you out of your X session)
 bindcode $mod+Shift+$period exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -308,7 +310,14 @@ exec --no-startup-id pasystray
 
 # for_window [class="^jetbrains-.+"][window_type=dialog] focus
 for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
+
+# Mouse and focus behavior
+
+# https://i3wm.org/docs/userguide.html#_mouse_warping
 mouse_warping none
+
+# https://i3wm.org/docs/userguide.html#_mouse_warping
+focus_follows_mouse no
 
 gaps inner 10
 

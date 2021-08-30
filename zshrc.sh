@@ -166,7 +166,7 @@ export TERM=xterm-256color
 #fi
 
 # for the path for now:
-export PATH=~/.node_modules/bin:$PATH
+export PATH=~/.node_modules/bin:/home/aaron/.local/share/gem/ruby/3.0.0/bin:$PATH
 export N_PREFIX=$HOME/.local
 
 function qdns {

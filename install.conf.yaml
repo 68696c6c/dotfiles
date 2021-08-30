@@ -5,6 +5,9 @@
 - clean: ['~']
 
 - link:
+    ~/aws-profile.sh:
+      force: true
+      path: aws-profile.sh
     ~/.vim:
       force: true
       path: vim
