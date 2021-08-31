@@ -197,7 +197,7 @@ mapped to extended configuration dictionaries.
       path: vimrc
     ~/.zshrc:
       force: true
-      path: zshrc
+      path: zshrc.sh
     ~/.hammerspoon:
       if: '[ `uname` = Darwin ]'
       path: hammerspoon
@@ -218,7 +218,7 @@ Explicit sources:
       path: vimrc
     ~/.zshrc:
       force: true
-      path: zshrc
+      path: zshrc.sh
     ~/.config/:
       glob: true
       path: config/*

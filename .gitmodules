@@ -5,3 +5,6 @@
 [submodule "dotbot-sudo"]
 	path = dotbot-sudo
 	url = https://github.com/68696c6c/dotbot-sudo.git
+[submodule "zgen"]
+	path = zgen
+	url = https://github.com/tarjoilija/zgen

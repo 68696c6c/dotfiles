@@ -11,7 +11,8 @@
 - link:
     ~/.aws/base-creds: aws-base-creds
     ~/aws-profile.sh: aws-profile.sh
-    ~/.bash_profile: bash_profile.sh
+    # ~/.bash_profile: bash_profile.sh
+    ~/.zshrc: zshrc.sh
     ~/.gitconfig: gitconfig
     ~/.iterm.json: iterm.json
     ~/.ssh/config: ssh_config
@@ -22,6 +23,10 @@
 
 - shell:
   - [ git submodule update --init --recursive, Installing submodules ]
+  - command: ./fonts.sh
+    stdin: true
+    stdout: true
+    stderr: true
   - command: which brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     stdin: true
     stdout: true

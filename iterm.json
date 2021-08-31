@@ -468,7 +468,7 @@
     "Red Component" : "0.02352941"
   },
   "Horizontal Spacing" : 1,
-  "Normal Font" : "Monaco 12",
+  "Normal Font" : "DroidSansMonoForPowerline 12",
   "Link Color" : {
     "Red Component" : 0,
     "Color Space" : "sRGB",

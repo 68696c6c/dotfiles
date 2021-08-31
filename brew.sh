@@ -17,7 +17,8 @@ brew install bash-git-prompt
 brew install lolcat
 brew install go
 brew install node
-brew install node@12
+brew install node@14 # LTS
+brew install node@16 # Latest
 brew install yarn
 brew install php
 brew install python
