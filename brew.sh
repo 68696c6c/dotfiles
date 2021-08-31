@@ -15,6 +15,7 @@ brew upgrade
 brew install coreutils
 brew install bash-git-prompt
 brew install lolcat
+brew install git-lfs
 brew install go
 brew install node
 brew install node@14 # LTS
