@@ -1,10 +1,10 @@
 [default]
-aws_access_key_id = AKIA4ZOICDLRTIKKHH6W
-aws_secret_access_key = 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
+aws_access_key_id =
+aws_secret_access_key =
 
 [ops]
-aws_access_key_id = AKIA4ZOICDLRTIKKHH6W
-aws_secret_access_key = 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
+aws_access_key_id =
+aws_secret_access_key =
 
 [martech-developer]
 role_arn = arn:aws:iam::485174081234:role/martech-developer

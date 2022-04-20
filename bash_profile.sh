@@ -339,3 +339,5 @@ alias pip='docker run --rm -it -v $PWD:$PWD --workdir $PWD python:latest pip'
 ## RUBY
 # Add rbenv to bash so that it loads every time you open a terminal
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

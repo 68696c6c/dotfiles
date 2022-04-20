@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
-account=879277251299
-email=aaron.hill@clearlink.com
+account=352747369312
+email=aaron.hill@shift.com
 
 # Gets an AWS session token for the ops profile.
 function awsmfa() {
