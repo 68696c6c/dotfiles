@@ -41,7 +41,7 @@ alias dnuke='docker volume prune && docker rmi -f $(docker images -q)'
 ## GIT
 alias gs='git status'
 function gco() {
-  git checkout $1
+  git checkout $1 $2
 }
 function gcb() {
   git checkout -b $1
