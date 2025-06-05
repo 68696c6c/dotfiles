@@ -1,11 +1,36 @@
+Host 3.92.58.14
+ ForwardAgent yes
+ User ec2-user
+ AddKeysToAgent yes
+ UseKeychain yes
+ IdentityFile ~/.ssh/lucida-ves-bastion.pem
+Host 44.217.71.22
+ ForwardAgent yes
+ User aaron
+ AddKeysToAgent yes
+ UseKeychain yes
+ IdentityFile ~/.ssh/denari-training-consumer-development-aaron
+Host 52.206.44.69
+ ForwardAgent yes
+ User aaron
+ AddKeysToAgent yes
+ UseKeychain yes
+ IdentityFile ~/.ssh/denari-bastion-development-aaron
+Host 3.89.3.159
+ ForwardAgent yes
 Host github.com-personal
  HostName github.com
  User git
  AddKeysToAgent yes
  UseKeychain yes
- IdentityFile ~/.ssh/id_rsa_personal
-Host github.com
+ IdentityFile ~/.ssh/id_ed25519
+ IdentitiesOnly yes
+Host github.com-helpful
  User git
  AddKeysToAgent yes
  UseKeychain yes
  IdentityFile ~/.ssh/id_ed25519
+Host github.com
+ User git
+ AddKeysToAgent yes
+ IdentityFile ~/.ssh/id_ed25519_denari

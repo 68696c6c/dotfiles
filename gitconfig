@@ -1,7 +1,9 @@
 [user]
 	name = Aaron Hill
-	email = aaron.hill@shift.com
+	email = 68696c6c@gmail.com
 [color]
 	ui = true
 [core]
 	autocrlf = input
+[init]
+	defaultBranch = main

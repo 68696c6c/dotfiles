@@ -1,3 +1,4 @@
+export PATH="$GOPATH/bin:$PATH"
 DOTFILES_DIR=~/Code/dotfiles
 
 export ZSH_THEME=agnoster
@@ -17,6 +18,9 @@ prompt_context(){
   true
 }
 
+## AWS
+alias aconf='cat ~/.aws/config'
+alias av='aws-vault'
 
 ## PROFILE
 alias szp='source ~/.zshrc'
@@ -25,15 +29,15 @@ alias hosts='sudo nano /etc/hosts'
 ## NAVIGATION
 alias ll='ls -lahG'
 alias code='cd $HOME/Code'
-alias cdgo='cd $HOME/Code/Go/src'
-alias cdpy='cd $HOME/Code/Python'
+alias denari='cd $HOME/Code/denari'
 alias dot='cd $DOTFILES_DIR'
+alias goat='cd $HOME/Code/goat'
 
 ## DOCKER
-alias dc='docker-compose'
-alias dr='docker-compose run --rm'
-alias drp='docker-compose run --rm --service-ports'
-alias dud='docker-compose up -d'
+alias dc='docker compose'
+alias dr='docker compose run --rm'
+alias drp='docker compose run --rm --service-ports'
+alias dud='docker compose up -d'
 alias dps='docker ps'
 alias drma='docker rm -f $(docker ps -aq)'
 alias dnuke='docker volume prune && docker rmi -f $(docker images -q)'
@@ -53,7 +57,7 @@ function gp() {
   git pull $1
 }
 function gpr() {
-  git pull --rebase $1
+  git pull --rebase $1 $2
 }
 function gap() {
   git add -p
@@ -83,16 +87,14 @@ function n() {
   brew link node@$1 --force --overwrite
 }
 
-## YARN
-alias y='yarn'
-alias yd='yarn develop'
-alias yt='yarn test'
-
 ## LOLCAT
 alias lll='ll | lolcat'
 function cat() {
     lolcat $1
 }
+
+## TERRAFORM
+alias tf='terraform'
 
 ## GO
 export GOPATH=$HOME/Code/Go
@@ -105,7 +107,8 @@ alias phpunit='vendor/bin/phpunit'
 ## Python
 # Run pip inside the python:latest docker image.
 alias python='python3'
-alias pip='docker run --rm -it -v $PWD:$PWD --workdir $PWD python:latest pip'
+alias pip='pip3'
+#alias pip='docker run --rm -it -v $PWD:$PWD --workdir $PWD python:latest pip'
 
 ## RUBY
 # Add rbenv to bash so that it loads every time you open a terminal

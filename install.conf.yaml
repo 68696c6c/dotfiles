@@ -9,9 +9,6 @@
   - ~/Code
 
 - link:
-    ~/.aws/base-creds: aws-base-creds
-    ~/aws-profile.sh: aws-profile.sh
-    # ~/.bash_profile: bash_profile.sh
     ~/.zshrc: zshrc.sh
     ~/.gitconfig: gitconfig
     ~/.iterm.json: iterm.json
