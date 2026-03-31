@@ -18,7 +18,8 @@ Host 52.206.44.69
  IdentityFile ~/.ssh/denari-bastion-development-aaron
 Host 3.89.3.159
  ForwardAgent yes
-Host github.com-personal
+#Host github.com-personal
+Host github.com
  HostName github.com
  User git
  AddKeysToAgent yes
@@ -30,7 +31,12 @@ Host github.com-helpful
  AddKeysToAgent yes
  UseKeychain yes
  IdentityFile ~/.ssh/id_ed25519
-Host github.com
- User git
+Host forge.bitstormtech.com
+ User aaron
  AddKeysToAgent yes
- IdentityFile ~/.ssh/id_ed25519_denari
+ UseKeychain yes
+ IdentityFile ~/.ssh/bitstorm_id_ed25519
+#Host github.com
+# User git
+# AddKeysToAgent yes
+# IdentityFile ~/.ssh/id_ed25519_denari

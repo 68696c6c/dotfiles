@@ -1,4 +1,4 @@
-export PATH="$GOPATH/bin:$PATH"
+export PATH="$HOME/.local/bin:$GOPATH/bin:$PATH"
 DOTFILES_DIR=~/Code/dotfiles
 
 export ZSH_THEME=agnoster
@@ -29,6 +29,7 @@ alias hosts='sudo nano /etc/hosts'
 ## NAVIGATION
 alias ll='ls -lahG'
 alias code='cd $HOME/Code'
+alias bitstorm='cd $HOME/Code/bitstorm'
 alias denari='cd $HOME/Code/denari'
 alias dot='cd $DOTFILES_DIR'
 alias goat='cd $HOME/Code/goat'
