@@ -1,4 +1,4 @@
-export PATH="$HOME/.local/bin:$GOPATH/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 DOTFILES_DIR=~/Code/dotfiles
 
 export ZSH_THEME=agnoster
@@ -70,6 +70,13 @@ function gri() {
   git rebase -i HEAD~$1
 }
 
+## 1PASSWORD
+alias opsignin='eval $(op signin)'
+
+## Claude
+alias clod='claude --chrome'
+alias approved='touch .claude/plan-approved'
+
 ## SYSTEM
 
 # List processes using the specified port.
@@ -99,6 +106,7 @@ alias tf='terraform'
 
 ## GO
 export GOPATH=$HOME/Code/Go
+export PATH="$GOPATH/bin:$PATH"
 alias gpath='echo $GOPATH'
 
 ## PHP
