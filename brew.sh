@@ -22,6 +22,7 @@ brew install node@22
 brew install yarn
 brew install php
 brew install python
+brew install pipx
 brew install hashicorp/tap/terraform
 brew install jq
 brew install yq
